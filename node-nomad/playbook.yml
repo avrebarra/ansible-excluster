@@ -17,7 +17,7 @@
       become: false
       unarchive:
         src: "{{ nomad_zip_url }}"
-        dest: /usr/local/bin/
+        dest: /usr/bin/
         mode: 0700
         remote_src: yes
 
