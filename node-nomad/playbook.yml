@@ -8,7 +8,7 @@
     - name: Download nomad archive
       become: false
       unarchive:
-        url: {{ nomad_zip_url }}
+        url: "{{ nomad_zip_url }}"
         dest: /usr/local/bin/
         remote_src: yes
 
