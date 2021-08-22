@@ -8,8 +8,9 @@
     - name: Download nomad archive
       become: false
       unarchive:
-        url: "{{ nomad_zip_url }}"
+        src: "{{ nomad_zip_url }}"
         dest: /usr/local/bin/
+        mode: 0700
         remote_src: yes
 
     - name: Create a data directory for Nomad
