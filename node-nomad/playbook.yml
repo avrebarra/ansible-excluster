@@ -1,13 +1,10 @@
 ---
-- name: Setup nomad on nodes (without configuration)
+- name: Setup nomad on nodes (without gossip configuration)
   hosts: all
   vars_files:
     - vars.yml  
 
   tasks:
-    - name: Install aptitude using apt
-      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
-      
     - name: Update apt and install unzip
       apt: update_cache=yes name=unzip state=latest
       
