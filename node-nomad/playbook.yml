@@ -11,4 +11,23 @@
       url: {{ nomad_zip_url }}
       dest: /usr/local/bin/
       remote_src: yes
-       
+
+  - name: Create a data directory for Nomad
+    file:
+      path: /opt/nomad
+      state: directory
+
+  - name: Create systemd service file
+    template:
+      src: template_nomad.service
+      dest: /etc/systemd/system/nomad.service
+
+  - name: Create nomad config file
+    template:
+      src: template_nomad.hcl
+      dest: /etc/nomad.d/nomad.hcl
+      
+  - name: Start service
+    systemd:
+      name: nomad
+      state: started
