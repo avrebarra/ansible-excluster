@@ -1,0 +1,14 @@
+---
+- name: Setup nomad on nodes (without configuration)
+  hosts: all
+  vars_files:
+    - vars.yml  
+
+  tasks:
+  - name: Download nomad archive
+    become: false
+    unarchive:
+      url: {{ nomad_zip_url }}
+      dest: /usr/local/bin/
+      remote_src: yes
+       
