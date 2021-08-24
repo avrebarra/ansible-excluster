@@ -28,7 +28,7 @@
 
     - name: Create systemd service file
       template:
-        src: template_nomad.service
+        src: files:etc:systemd:system:nomad.service
         dest: /etc/systemd/system/nomad.service
 
     - name: Create nomad config file directory
@@ -36,7 +36,7 @@
 
     - name: Create nomad config file
       template:
-        src: template_nomad.hcl
+        src: files:etc:nomad.d:nomad.hcl
         dest: /etc/nomad.d/nomad.hcl
 
     - name: Start service
