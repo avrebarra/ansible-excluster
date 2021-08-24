@@ -2,5 +2,9 @@
 host1 ansible_host=111.0.0.111
 host2 ansible_host=111.0.0.111
 
+[masters]
+master1 ansible_connection=local
+master2 ansible_host=111.0.0.111
+
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
